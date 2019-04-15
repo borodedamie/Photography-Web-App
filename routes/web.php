@@ -26,3 +26,12 @@ Route::get('/admin/feedback', 'adminController@feedback')->name('admin.feedback'
 
 //event
 Route::get('/admin/event', 'adminController@event')->name('admin.event');
+Route::get('/admin/event/new', 'adminController@newEvent')->name('admin.newEvent');
+Route::get('/admin/event/show/{id}', 'adminController@showEvent')->name('admin.showEvent');
+Route::get('/admin/event/edit/{id}', 'adminController@editEvent')->name('admin.editEvent');
+Route::post('/admin/event/update/{id}', 'adminController@updateEvent')->name('admin.updateEvent');
+Route::get('/admin/event/delete/{id}', [
+    'as' => 'admin.deleteEvent',
+    'uses' => 'adminController@deleteEvent'
+]);
+

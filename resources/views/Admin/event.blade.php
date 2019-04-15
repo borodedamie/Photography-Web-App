@@ -212,27 +212,29 @@
         <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Feedback</strong>
+                        <strong class="card-title">Event</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Feedback</th>
+                                    <th scope="col">Event</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach($feedbacks as $feedback)
+                                    @foreach($events as $event)
                                     <tr>
-                                        <th scope="row">{!! $feedback->feedback_id !!}</th>
-                                        <td>{!! $feedback->feedback !!}</td>
+                                        <th scope="row">{!! $event->event_id !!}</th>
+                                        <td>{!! $event->event_title !!}</td>
+                                        <td>{!! $event->event_description !!}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="#" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <a href="{!! route('admin.showEvent', [$event->event_id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                <a href="{!! route('admin.editEvent', [$event->event_id]) !!}" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                                <a href="{!! route('admin.deleteEvent', [$event->event_id]) !!}" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -251,7 +253,7 @@
         <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/main.js') }}"></script>
     
-    
+
         <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
         <script src="{{ URL::asset('js/dashboard.js') }}"></script>
         <script src="{{ URL::asset('js/widgets.js') }}"></script>

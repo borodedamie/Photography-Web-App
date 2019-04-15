@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(feedbackSeeder::class);
         $this->call(instagramSeeder::class);
         $this->call(eventSeeder::class);
+        $this->call(RolesSeeder::class);
 
     }
 }

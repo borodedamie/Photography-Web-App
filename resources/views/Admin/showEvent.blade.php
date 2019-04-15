@@ -209,41 +209,55 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Feedback</strong>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Feedback</th>
-                                    <th scope="col">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    @foreach($feedbacks as $feedback)
-                                    <tr>
-                                        <th scope="row">{!! $feedback->feedback_id !!}</th>
-                                        <td>{!! $feedback->feedback !!}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="#" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                            </tbody>
-                        </table>
+        <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Event Details</h1>
+                        </div>
                     </div>
                 </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            {{-- <ol class="breadcrumb text-right">
+                                <li class="active">Dashboard</li>
+                            </ol> --}}
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        
+            <div class="row form-group" style="margin-top: 30px;">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Event Title:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $event->event_title }}</a></p>
+                    </div>
             </div>
 
-
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Event Description:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $event->event_description }}</a></p>
+                    </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Display Image:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <img src="/img/home-blog/{{ $event->event_image}}" type= "file" width="300px"/>
+                    </div>
+            </div>
+            <div class="class">
+                <a class="btn btn-outline-info" href="{{ route('admin.event')}}" role="button" style="margin-left: 400px; margin-bottom: 30px;">Back</a>
+            </div>
+    </div>
+    
 
 
         <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
@@ -251,7 +265,7 @@
         <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/main.js') }}"></script>
     
-    
+
         <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
         <script src="{{ URL::asset('js/dashboard.js') }}"></script>
         <script src="{{ URL::asset('js/widgets.js') }}"></script>
@@ -259,36 +273,6 @@
         <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
         <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     
-<!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-<script>
-            (function($) {
-                "use strict";
-    
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                 backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
     
 </body>
     

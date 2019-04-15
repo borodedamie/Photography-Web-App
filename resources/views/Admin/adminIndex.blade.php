@@ -53,24 +53,22 @@
                     </li> --}}
                     <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                     <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
+                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">New Feedback</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">New Feedback</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                         </ul>
-                    </li>
-
-                    
+                    </li>    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -262,17 +260,15 @@
                                 <div class="col col-md-3" style="text-align: center;">
                                     <label for="text-input" class=" form-control-label">Name</label>
                                 </div>
-                                <div class="col-12 col-md-9">
+                                <div class="col-12 col-lg-8">
                                     <input type="text" id="text-input" name="company_name" placeholder="" class="form-control" value="{{ $banner[0]->company_name }}">
                                 </div>
                             </div>
                             <div class="row form-group">
-                                <div class="col col-md-3" style="text-align: center;">
-                                    <label for="text-input" class=" form-control-label">Motto</label>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <input type="text" id="text-input" name="company_motto" placeholder="" class="form-control" value="{{ $banner[0]->description }}">
-                                </div>
+                                    <div class="col col-md-3" style="text-align: center;">
+                                        <label for="textarea-input" class=" form-control-label">Motto</label>
+                                    </div>
+                                    <div class="col-12 col-lg-8 "><textarea name="motto" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ $banner[0]->description }}</textarea></div>
                             </div>
                             <div class="card-footer" style="text-align: center;">
                                 <button type="submit" class="btn btn-primary btn-sm">
