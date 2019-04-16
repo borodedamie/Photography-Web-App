@@ -59,7 +59,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>                            
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">New Feedback</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -231,7 +230,6 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a href="#" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                                 <a href="#" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </div>
                                         </td>

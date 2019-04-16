@@ -33,12 +33,14 @@ class adminController extends Controller
 
     // }
 
+    //feedback
     public function feedback(){
 
         $feedbacks = Feedback::all();
 
         return view('admin.feedback', [ 'feedbacks' => $feedbacks ]);
     }
+
 
     //event functions
 
@@ -51,6 +53,21 @@ class adminController extends Controller
     public function newEvent() {
         return view('admin.newEvent');
     }
+
+    public function storeEvent(Request $request){
+        // dd($request->all());
+        $imageName = $request->event_image->getClientOriginalName();
+
+        DB::table('events')->insert([
+            'event_title' => $request->event_title,
+            'event_description' => $request->event_description,
+            'event_image' => $imageName
+        ]);
+        
+        return back()->with('success', 'Event created successfully!');
+    }
+
+    
 
     public function showEvent($id){
 
@@ -91,16 +108,6 @@ class adminController extends Controller
         $event = Event::where('event_id', $id)->first();
 
         $event->delete();
-
-        //learn how to delete with AJAX!!
-
-        // $sortedEvent = Event::all();
-
-        // $array = ['sortedEvent' => $sortedEvent ];
-
-        // $sorted = Arr::sort($array);
-
-        // return $array;
     }
 
 }

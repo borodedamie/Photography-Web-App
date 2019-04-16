@@ -84,31 +84,47 @@
         <!--================End Home Banner Area =================-->
         
         <!--================Home Blog Area =================-->
-        <section class="home_blog_area pad_top">
-        	<div class="container">
-        		<div class="home_blog_inner">
-
-        			@foreach($events as $event)
-        			<div class="row h_blog_item">
-						<div class="col-lg-6">
-							<div class="h_blog_text">
-								<div class="h_blog_text_inner right">
-									<h4>{!! $event->event_title !!}</h4>
-									<p>{!! $event->event_description !!}</p>
-									<a class="main_btn2" href="#">Explore Gallery</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="h_blog_img">
-								<img class="img-fluid" src=" img/home-blog/{{ $event->event_image }}" alt="">
-							</div>
-						</div>
-					</div>
-					@endforeach
-						</div>
-        			</div>
-
+		<section class="blog_categorie_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-3.jpg') }}" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="blog-details.html"><h5>Social Life</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Enjoy your social life together</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-2.jpg') }}" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="blog-details.html"><h5>Politics</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Be a part of politics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-1.jpg') }}" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="blog-details.html"><h5>Food</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Let the food be finished</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!--================End Home Blog Area =================-->
                 
