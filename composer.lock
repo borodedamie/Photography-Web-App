@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d4dbf120d76b70daf6ea29eec237651",
+    "content-hash": "2f9d5700dcde463b7e452bdb66a1a780",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2913,7 +2913,7 @@
         },
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "dev-master",
+            "version": "v154",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
@@ -4445,9 +4445,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "heroku/heroku-buildpack-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
