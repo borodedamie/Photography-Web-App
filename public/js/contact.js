@@ -22,7 +22,7 @@ $(document).ready(function(){
                 },
                 number: {
                     required: true,
-                    minlength: 5
+                    minlength: 2
                 },
                 email: {
                     required: true,
@@ -30,13 +30,13 @@ $(document).ready(function(){
                 },
                 message: {
                     required: true,
-                    minlength: 20
+                    minlength: 100
                 }
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must consist of at least 2 characters"
+                    required: "The name fiels is required",
+                    minlength: "name must consist of at least 2 characters"
                 },
                 subject: {
                     required: "come on, you have a subject, don't you?",
@@ -58,7 +58,7 @@ $(document).ready(function(){
                 $(form).ajaxSubmit({
                     type:"POST",
                     data: $(form).serialize(),
-                    url:"contact_process.php",
+                    url: "{{ route('home.storeContact') }}",
                     success: function() {
                         $('#contactForm :input').attr('disabled', 'disabled');
                         $('#contactForm').fadeTo( "slow", 1, function() {

@@ -21,6 +21,9 @@ Route::get('/', 'homeController@index');
 Route::get('/admin', 'adminController@editBanner')->name('admin.index');
 Route::post('/admin/updateBanner', 'adminController@updateBanner')->name('admin.updateBanner');
 
+//store contact form
+Route::post('/storecontact', 'homeController@storeContact')->name('home.storeContact');
+
 //feedback
 Route::get('/admin/feedback', 'adminController@feedback')->name('admin.feedback');
 

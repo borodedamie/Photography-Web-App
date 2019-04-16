@@ -23,4 +23,16 @@ class homeController extends Controller
             'feedbacks' => $feedbacks,
         ]);
     }
+
+    public function storeContact(Request $request) {
+
+        DB::table('contacts')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message
+        ]);
+
+        return back();
+    }
 }

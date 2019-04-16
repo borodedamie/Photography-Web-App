@@ -39,17 +39,11 @@
 								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
 								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
 								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects</a>
-									<ul class="dropdown-menu">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+									{{-- <ul class="dropdown-menu">
 										<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a>
 										<li class="nav-item"><a class="nav-link" href="project-details.html">Project Details</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
+									</ul> --}}
 								</li> 
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -57,8 +51,7 @@
 										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
 									</ul>
-								</li> 
-								<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+								</li>
 							</ul>
 						</div> 
 					</div>
@@ -92,9 +85,9 @@
                             <img src="{{ URL::asset('img/blog/cat-post/cat-post-3.jpg') }}" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Social Life</h5></a>
+                                    <a href="blog-details.html"><h5>Birthday Event</h5></a>
                                     <div class="border_line"></div>
-                                    <p>Enjoy your social life together</p>
+                                    <p>Birthdays are for bants.</p>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +97,9 @@
                             <img src="{{ URL::asset('img/blog/cat-post/cat-post-2.jpg') }}" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Politics</h5></a>
+                                    <a href="blog-details.html"><h5>Wedding Ceremonies</h5></a>
                                     <div class="border_line"></div>
-                                    <p>Be a part of politics</p>
+                                    <p>& two shall become one</p>
                                 </div>
                             </div>
                         </div>
@@ -116,9 +109,9 @@
                             <img src="{{ URL::asset('img/blog/cat-post/cat-post-1.jpg') }}" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Food</h5></a>
+                                    <a href="blog-details.html"><h5>Graduation Ceremonies</h5></a>
                                     <div class="border_line"></div>
-                                    <p>Let the food be finished</p>
+                                    <p>Lets help capture your one in a lifetime event.</p>
                                 </div>
                             </div>
                         </div>
@@ -185,53 +178,56 @@
         
         <!--================Footer Area =================-->
         <footer class="footer_area">
-        	<div class="container">	
-        		<div class="row footer_inner">
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget ab_widget">
-        					<div class="f_title">
-        						<h3>About Me</h3>
-        					</div>
-        					<p>Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills,</p>
-        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-        				</aside>
-        			</div>
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget news_widget">
-        					<div class="f_title">
-        						<h3>Newsletter</h3>
-        					</div>
-        					<p>Stay updated with our latest trends</p>
-        					<div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                	<div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
-                                    </div>				
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-        				</aside>
-        			</div>
-        			<div class="col-lg-2">
-        				<aside class="f_widget social_widget">
-        					<div class="f_title">
-        						<h3>Follow Me</h3>
-        					</div>
-        					<p>Let us be social</p>
-        					<ul class="list">
-        						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-        						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-        					</ul>
-        				</aside>
-        			</div>
-        		</div>
-        	</div>
+							<section class="contact_area ">
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-3">
+												<div class="contact_info">
+													<div class="info_item">
+														<i class="lnr lnr-home"></i>
+														<h6>Abimbola Abiola Close</h6>
+														<p>Sangotedo, Lekki Lagos</p>
+													</div>
+													<div class="info_item">
+														<i class="lnr lnr-phone-handset"></i>
+														<h6><a href="#">+2348135019640</a></h6>
+														<p>Mon to Fri 9am to 6 pm</p>
+													</div>
+													<div class="info_item">
+														<i class="lnr lnr-envelope"></i>
+														<h6><a href="#">opeoluborode@yahoo.com</a></h6>
+														<p>Send us your query anytime!</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-9">
+												<form class="row contact_form" action="{{ route('home.storeContact') }}" method="post" id="contactForm" novalidate="novalidate" enctype="multipart/form-data">
+													<input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+													<div class="col-md-6">
+														<div class="form-group">
+															<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+														</div>
+														<div class="form-group">
+															<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+														</div>
+														<div class="form-group">
+															<input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+														</div>
+													</div>
+													<div class="col-md-12 text-right">
+														<button type="submit" value="submit" class="btn submit_btn">Send Message</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</section>
+        	
         </footer>
         <!--================End Footer Area =================-->
         
@@ -256,6 +252,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="{{ URL::asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/counter-up/jquery.counterup.js') }}"></script>
         <script src="{{ URL::asset('js/mail-script.js') }}"></script>
-        <script src="{{ URL::asset('js/theme.js') }}"></script>
+		<script src="{{ URL::asset('js/theme.js') }}"></script>
+		
+		 <!-- contact js -->
+		 {{-- <script src="{{ URL::asset('js/jquery.form.js') }}"></script>
+		 <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
+		 <script src="{{ URL::asset('js/contact.js') }}"></script> --}}
+
     </body>
 </html>
