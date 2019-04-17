@@ -1,12 +1,11 @@
-
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
+<html lang="en">
+    <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/png">
-        <title>Flash Photography</title>
+        <title>Flash Photography - @yield('title') </title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('vendors/linericon/style.css') }}">
@@ -40,17 +39,11 @@
 								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
 								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
 								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects</a>
-									<ul class="dropdown-menu">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+									{{-- <ul class="dropdown-menu">
 										<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a>
 										<li class="nav-item"><a class="nav-link" href="project-details.html">Project Details</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
+									</ul> --}}
 								</li> 
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -58,36 +51,12 @@
 										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
 									</ul>
-								</li> 
-								<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+								</li>
 							</ul>
 						</div> 
 					</div>
             	</nav>
             </div>
+
+            @yield('header')
         </header>
-
-
-          <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ URL::asset('js/popper.js') }}"></script>
-        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('js/stellar.js') }}"></script>
-        <script src="{{ URL::asset('vendors/lightbox/simpleLightbox.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/isotope/isotope.pkgd.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/popup/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ URL::asset('js/jquery.ajaxchimp.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/counter-up/jquery.counterup.js') }}"></script>
-        <script src="{{ URL::asset('js/mail-script.js') }}"></script>
-        <script src="{{ URL::asset('js/theme.js') }}"></script>
-
-        <div class="container">
-            @yield('content')
-        </div>
-        </body>
-        <!--================Header Menu Area =================-->

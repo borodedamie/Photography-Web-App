@@ -39,3 +39,7 @@ Route::get('/admin/event/delete/{id}', [
     'uses' => 'adminController@deleteEvent'
 ]);
 
+//service
+Route::get('/admin/services', 'adminController@services')->name('admin.services');
+Route::get('/admin/edit/service/{id}', 'adminController@editService')->name('admin.editService');
+Route::get('/admin/service/show/{id}', 'adminController@showService')->name('admin.showService');

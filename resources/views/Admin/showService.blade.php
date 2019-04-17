@@ -58,16 +58,17 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>                            
+                            <li><i class="fa fa-table"></i><a href="tables-data.html">New Feedback</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
-                        </ul>
-                    </li>    
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
+                            </ul>
+                    </li>  
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -75,6 +76,8 @@
                             <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
                         </ul>
                     </li>
+
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -214,132 +217,71 @@
         <!-- Header-->
 
         <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Edit Banner</h1>
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>{{ $service->service_title }} Details</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        {{-- <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol> --}}
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            {{-- <ol class="breadcrumb text-right">
+                                <li class="active">Dashboard</li>
+                            </ol> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> 
-
-        <!-- session message -->
-
-        @if ($errors->any())
-        <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
-    
-    
-        @if(Session::has('success'))
-          <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
-              <div class = "text-center" >{{Session::get('success')}}
-
-                <button style = "" type="button" class="close" onclick = "document.getElementById('success-div').style.display = 'none';" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button> 
-              </div>              
+            </div> 
         
-          </div>
-        @endif
-
-        <div class="col-lg-12">
-            <div class="card">
-                    <div class="card-body card-block">
-                        <form action="{!! route('admin.updateBanner') !!}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
-                            <div class="row form-group">
-                                <div class="col col-md-3" style="text-align: center;">
-                                    <label for="text-input" class=" form-control-label">Name</label>
-                                </div>
-                                <div class="col-12 col-lg-8">
-                                    <input type="text" id="text-input" name="company_name" placeholder="" class="form-control" value="{{ $banner[0]->company_name }}">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                    <div class="col col-md-3" style="text-align: center;">
-                                        <label for="textarea-input" class=" form-control-label">Motto</label>
-                                    </div>
-                                    <div class="col-12 col-lg-8 "><textarea name="motto" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ $banner[0]->description }}</textarea></div>
-                            </div>
-                            <div class="card-footer" style="text-align: center;">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
-                                <button type="reset" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
-                                </button>
-                            </div>
-                        </form>
+            <div class="row form-group" style="margin-top: 30px;">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Service Title:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $service->service_title }}</a></p>
+                    </div>
             </div>
-        </div>
-        </div>
-   
 
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Service Description:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $service->service_description }}</a></p>
+                    </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Service Image:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <img src="/img/service/{{ $service->service_image}}" type= "file" width="300px"/>
+                    </div>
+            </div>
+            <div class="class">
+                <a class="btn btn-outline-info" href="{{ route('admin.event')}}" role="button" style="margin-left: 400px; margin-bottom: 30px;">Back</a>
+            </div>
+    </div>
     
-        <!-- Right Panel -->
-       
-
-    <!-- Right Panel -->
-
-    <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('js/main.js') }}"></script>
 
 
-    <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-    <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-    <script src="{{ URL::asset('js/widgets.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('js/main.js') }}"></script>
+    
 
-    <!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-    <script>
-        (function($) {
-            "use strict";
-
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
-
+        <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
+        <script src="{{ URL::asset('js/dashboard.js') }}"></script>
+        <script src="{{ URL::asset('js/widgets.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    
+    
 </body>
-
+    
 </html>
+    

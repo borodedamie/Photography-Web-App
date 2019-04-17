@@ -58,23 +58,25 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
-                        </ul>
-                    </li>    
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
+                            </ul>
+                    </li> 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
                         </ul>
-                    </li>
+                    </li> 
+
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -213,27 +215,7 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Edit Banner</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        {{-- <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol> --}}
-                    </div>
-                </div>
-            </div>
-        </div> 
-
-        <!-- session message -->
-
+        {{-- session --}}
         @if ($errors->any())
         <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
           <ul>
@@ -258,88 +240,77 @@
         @endif
 
         <div class="col-lg-12">
-            <div class="card">
-                    <div class="card-body card-block">
-                        <form action="{!! route('admin.updateBanner') !!}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
-                            <div class="row form-group">
-                                <div class="col col-md-3" style="text-align: center;">
-                                    <label for="text-input" class=" form-control-label">Name</label>
-                                </div>
-                                <div class="col-12 col-lg-8">
-                                    <input type="text" id="text-input" name="company_name" placeholder="" class="form-control" value="{{ $banner[0]->company_name }}">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                    <div class="col col-md-3" style="text-align: center;">
-                                        <label for="textarea-input" class=" form-control-label">Motto</label>
+                <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">{{ $service->service_title }}</strong>
+                        </div>
+                        <div class="card-body card-block">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+                                <div class="row form-group">
+                                    <div class="col col-md-3" style="">
+                                        <label for="text-input" class=" form-control-label">Service Title</label>
                                     </div>
-                                    <div class="col-12 col-lg-8 "><textarea name="motto" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ $banner[0]->description }}</textarea></div>
-                            </div>
-                            <div class="card-footer" style="text-align: center;">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
-                                <button type="reset" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
-                                </button>
-                            </div>
-                        </form>
+                                    <div class="col-12 col-lg-6">
+                                        <input type="text" id="text-input" name="event_title" placeholder="" class="form-control" value="{{ $service->service_title }}">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                        <div class="col col-md-3" style="">
+                                            <label for="" class="form-control-label">Service Image</label>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <img name = "" class ="img-responsive" alt=" No image" width="400px" src ="/img/service/{{ $service->service_image}}">
+                                        </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3" >
+                                        <label for="file-input" class=" form-control-label"></label>
+                                    </div>
+                                    <div class="col-12 col-lg-6" style="">
+                                        <input type="file" id="file-input" name="service_image" class="form-control-file">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                        <div class="col col-md-3" style="">
+                                            <label for="textarea-input" class=" form-control-label">Service Description</label>
+                                        </div>
+                                        <div class="col-12 col-lg-6"><textarea name="service_description" id="textarea-input" rows="9" placeholder="Write a brief description about your service..." class="form-control">{{ $service->service_description }}</textarea></div>
+                                </div>
+                                <div class="card-footer" style="text-align: center;">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button>
+                                    <button type="reset" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-ban"></i> Reset
+                                    </button>
+                                    <a class="btn btn-success btn-sm" href="{{ route('admin.services')}}" role="button">
+                                        <i class="fa fa-minus-square-o"></i> Back 
+                                    </a>   
+                               </div>
+                            </form>
+                        </div>
+                </div>
             </div>
-        </div>
-        </div>
-   
 
+
+
+
+        <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('js/main.js') }}"></script>
     
-        <!-- Right Panel -->
-       
 
-    <!-- Right Panel -->
-
-    <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('js/main.js') }}"></script>
-
-
-    <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-    <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-    <script src="{{ URL::asset('js/widgets.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-
-    <!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-    <script>
-        (function($) {
-            "use strict";
-
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
-
+        <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
+        <script src="{{ URL::asset('js/dashboard.js') }}"></script>
+        <script src="{{ URL::asset('js/widgets.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+        <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    
+    
 </body>
-
+    
 </html>
+    

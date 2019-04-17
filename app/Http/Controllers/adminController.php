@@ -8,6 +8,7 @@ use Illuminate\Support\Arr;
 use App\Banner;
 use App\Feedback;
 use App\Event;
+use App\Service;
 
 
 class adminController extends Controller
@@ -28,10 +29,6 @@ class adminController extends Controller
 
         return back()->with('success', 'banner updated successfully!');
     }
-
-    // public function newFeedback(){
-
-    // }
 
     //feedback
     public function feedback(){
@@ -108,6 +105,30 @@ class adminController extends Controller
         $event = Event::where('event_id', $id)->first();
 
         $event->delete();
+    }
+
+    //service
+    public function services(){
+        $services = Service::all();
+
+        return view('admin.service', [ 'services' => $services ]);
+    }
+
+    public function editService($id) {
+
+        $service = Service::where('id', $id)->first();
+
+        return view('admin.editService', [ 'service' => $service ]);
+    }
+
+    // public function storeService(Request $request){
+
+    // }
+
+    public function showService($id) {
+        $service = Service::where('id', $id)->first();
+
+        return view('admin.showService', [ 'service' => $service ]);
     }
 
 }

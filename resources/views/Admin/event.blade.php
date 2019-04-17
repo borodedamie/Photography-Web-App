@@ -68,6 +68,13 @@
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                             </ul>
                     </li>  
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                        </ul>
+                    </li>
 
                     
                 </ul>
