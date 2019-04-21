@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Gallery;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         $this->call(userSeeder::class);
         $this->call(serviceSeeder::class);
+        $this->call(categorySeeder::class);
+
+        factory(Gallery::class, 50)->create();
 
     }
 }

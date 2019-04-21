@@ -47,36 +47,43 @@
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    {{-- <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                    </li> --}}
-                    <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
-                    <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
-                        </ul>
-                    </li>    
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                    <ul class="nav navbar-nav">
+                        {{-- <li class="active">
+                            <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
+                        </li> --}}
+                        <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
+                        <li class="active">
+                                <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
+                            </ul>
+                        </li>    
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                            {{-- <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
 

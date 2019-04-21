@@ -24,10 +24,15 @@ class adminController extends Controller
 
         DB::table('banners')->where('id', 1)->update([
             'company_name' => $request->company_name,
-            'description' => $request->company_motto
+            'description' => $request->motto,
+            'address' => $request->address,
+            'city' => $request->city,
+            'email' => $request->email_address,
+            'phone_number' => $request->phone_number,
+            'opening_closing_time' => $request->opening_closing_time
         ]);
 
-        return back()->with('success', 'banner updated successfully!');
+        return back()->with('success', 'profile updated successfully!');
     }
 
     //feedback
@@ -36,6 +41,13 @@ class adminController extends Controller
         $feedbacks = Feedback::all();
 
         return view('admin.feedback', [ 'feedbacks' => $feedbacks ]);
+    }
+
+    public function destroyFeedback($id)
+    {
+        Feedback::find($id)->delete($id);
+
+        return response()->json([ 'success' => 'feedback deleted successfully!']);
     }
 
 
@@ -121,9 +133,23 @@ class adminController extends Controller
         return view('admin.editService', [ 'service' => $service ]);
     }
 
-    // public function storeService(Request $request){
+    public function updateService($id, Request $request){
+        
+        $service = Service::where('id', $id)->first();
+        $imageName = $request->service_image->getClientOriginalName();
 
-    // }
+        // dd($imageName);
+
+        DB::table('services')->where('id', $id)->update([
+            'service_title' => $request->service_title,
+            'service_description' => $request->service_description,
+            'service_image' => $imageName,
+        ]);
+
+        $service->save();
+        
+        return back()->with('success', $request->service_title. ' '. 'added successfully!');
+    }
 
     public function showService($id) {
         $service = Service::where('id', $id)->first();

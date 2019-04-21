@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/png">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/png">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Flash Photography</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
@@ -185,42 +186,42 @@
 												<div class="contact_info">
 													<div class="info_item">
 														<i class="lnr lnr-home"></i>
-														<h6>Abimbola Abiola Close</h6>
-														<p>Sangotedo, Lekki Lagos</p>
+														<h6>{!! $banner[0]->address !!}</h6>
+														<p>{!! $banner[0]->city !!}</p>
 													</div>
 													<div class="info_item">
 														<i class="lnr lnr-phone-handset"></i>
-														<h6><a href="#">+2348135019640</a></h6>
-														<p>Mon to Fri 9am to 6 pm</p>
+														<h6><a href="#">{!! $banner[0]->phone_number !!}</a></h6>
+														<p>{!! $banner[0]->opening_closing_time !!}</p>
 													</div>
 													<div class="info_item">
 														<i class="lnr lnr-envelope"></i>
-														<h6><a href="#">opeoluborode@yahoo.com</a></h6>
+														<h6><a href="#">{!! $banner[0]->email !!}</a></h6>
 														<p>Send us your query anytime!</p>
 													</div>
 												</div>
 											</div>
 											<div class="col-lg-9">
-												<form class="row contact_form" action="{{ route('home.storeContact') }}" method="post" id="contactForm" novalidate="novalidate" enctype="multipart/form-data">
-													<input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+												<form class="row contact_form" id="contactForm">
+														<input type="hidden" name="_token" value="{{ csrf_token() }}">
 													<div class="col-md-6">
 														<div class="form-group">
-															<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+															<input type="text" class="form-control" id="name" placeholder="Enter your name">
 														</div>
 														<div class="form-group">
-															<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+															<input type="email" class="form-control" id="email" placeholder="Enter email address">
 														</div>
 														<div class="form-group">
-															<input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+															<input type="text" class="form-control" id="subject" placeholder="Enter Subject">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+															<textarea class="form-control" id="message" rows="1" placeholder="Enter Message"></textarea>
 														</div>
 													</div>
 													<div class="col-md-12 text-right">
-														<button type="submit" value="submit" class="btn submit_btn">Send Message</button>
+														<button type="submit" value="submit" class="btn submit_btn" id="sendMessage">Send Message</button>
 													</div>
 												</form>
 											</div>
@@ -254,10 +255,39 @@
         <script src="{{ URL::asset('js/mail-script.js') }}"></script>
 		<script src="{{ URL::asset('js/theme.js') }}"></script>
 		
-		 <!-- contact js -->
-		 {{-- <script src="{{ URL::asset('js/jquery.form.js') }}"></script>
+		 {{-- <!-- contact js -->
+		 <script src="{{ URL::asset('js/jquery.form.js') }}"></script>
 		 <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
-		 <script src="{{ URL::asset('js/contact.js') }}"></script> --}}
+		 <script src="{{ URL::asset('js/contact.js') }}"></script>  --}}
 
+		<script>
+			$(document).ready(function(){
+				$('#sendMessage').click(function(e){
+					e.preventDefault();
+					$.ajaxSetup({
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						}
+					});
+
+					$.ajax({
+						url: "{{ route('home.storeContact') }}",
+						method: 'post',
+						dataType: 'json',
+						data: {
+							name: $('#name').val(),
+							email: $('#email').val(),
+							subject: $('#subject').val(),
+							message: $('#message').val()
+						},
+						success: function(result){
+							$('.alert').show();
+							$('.alert').html(result.success);
+							$('#contactForm')[0].reset();
+						}
+					});
+				});
+			});
+		</script>
     </body>
 </html>

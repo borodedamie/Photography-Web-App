@@ -8,6 +8,7 @@ use App\Service;
 use App\Feedback;
 use App\Instagram;
 use App\Event;
+use App\Contact;
 
 
 class homeController extends Controller
@@ -25,14 +26,16 @@ class homeController extends Controller
     }
 
     public function storeContact(Request $request) {
+        
+        $contact = new Contact();
 
-        DB::table('contacts')->insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'subject' => $request->subject,
-            'message' => $request->message
-        ]);
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
 
-        return back();
+        $contact->save();
+
+        return response()->json(['success' => 'data added successfully!']);
     }
 }

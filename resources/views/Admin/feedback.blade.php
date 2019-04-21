@@ -12,6 +12,8 @@
     <title>Admin</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -47,38 +49,43 @@
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    {{-- <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                    </li> --}}
-                    <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
-                    <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>                            
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
+                    <ul class="nav navbar-nav">
+                        {{-- <li class="active">
+                            <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
+                        </li> --}}
+                        <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
+                        <li class="active">
+                                <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                             </ul>
-                    </li> 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
-                        </ul>
-                    </li> 
-
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                        </li>    
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                            {{-- <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
 
@@ -237,7 +244,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a href="#" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a href="#" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <a href="" class='btn btn-danger btn-xs' id="deleteFeedback" data-id="{{ $feedback->feedback_id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -250,33 +257,42 @@
 
 
 
-
+        
+        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/main.js') }}"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#deleteFeedback').click(function(e){
+                    e.preventDefault();
+
+                    var obj = $(this).parents("tr");
+                    $.ajaxSetup({
+                        headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        url: "{{ route('admin.destroyFeedback', [ $feedback->feedback_id ]) }}",
+                        method: 'DELETE',
+                        data: {
+                            id: $(this).data("id")
+                        },
+                        success: function(result){
+                            obj.remove();
+
+                            console.log(result);
+                        }
+                    });
+                });
+            });
+        </script>
     
-    
-        <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-        <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-        <script src="{{ URL::asset('js/widgets.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-    
-<!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-<script>
+{{-- <script>
             (function($) {
                 "use strict";
     
@@ -293,7 +309,7 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-    </script>
+    </script> --}}
     
 </body>
     

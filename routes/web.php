@@ -26,6 +26,7 @@ Route::post('/storecontact', 'homeController@storeContact')->name('home.storeCon
 
 //feedback
 Route::get('/admin/feedback', 'adminController@feedback')->name('admin.feedback');
+Route::delete('/admin/feedback/{id}', 'adminController@destroyFeedback')->name('admin.destroyFeedback');
 
 //event
 Route::get('/admin/event', 'adminController@event')->name('admin.event');
@@ -42,4 +43,5 @@ Route::get('/admin/event/delete/{id}', [
 //service
 Route::get('/admin/services', 'adminController@services')->name('admin.services');
 Route::get('/admin/edit/service/{id}', 'adminController@editService')->name('admin.editService');
+Route::post('/admin/service/update/{id}', 'adminController@updateService')->name('admin.updateService');
 Route::get('/admin/service/show/{id}', 'adminController@showService')->name('admin.showService');

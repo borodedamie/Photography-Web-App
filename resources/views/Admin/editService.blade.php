@@ -47,38 +47,43 @@
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    {{-- <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                    </li> --}}
-                    <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
-                    <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>                            
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
+                    <ul class="nav navbar-nav">
+                        {{-- <li class="active">
+                            <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
+                        </li> --}}
+                        <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
+                        <li class="active">
+                                <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                             </ul>
-                    </li> 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
-                        </ul>
-                    </li> 
-
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                        </li>    
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                            {{-- <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
 
@@ -245,14 +250,14 @@
                             <strong class="card-title">{{ $service->service_title }}</strong>
                         </div>
                         <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="{{ route('admin.updateService', [$service->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                                 <div class="row form-group">
                                     <div class="col col-md-3" style="">
                                         <label for="text-input" class=" form-control-label">Service Title</label>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <input type="text" id="text-input" name="event_title" placeholder="" class="form-control" value="{{ $service->service_title }}">
+                                        <input type="text" id="text-input" name="service_title" placeholder="" class="form-control" value="{{ $service->service_title }}">
                                     </div>
                                 </div>
                                 <div class="row form-group">

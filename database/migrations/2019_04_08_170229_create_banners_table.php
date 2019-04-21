@@ -17,6 +17,11 @@ class CreateBannersTable extends Migration
             $table->bigIncrements('id');
             $table->string('company_name');
             $table->text('description');
+            $table->text('address');
+            $table->string('city');
+            $table->string('email')->unique();
+            $table->string('phone_number');
+            $table->string('opening_closing_time');
             $table->timestamps();
         });
     }

@@ -42,7 +42,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="./admin"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="{{ URL::asset('img/logo2.png') }}" alt="Logo"></a>
             </div>
 
@@ -53,7 +53,7 @@
                     </li> --}}
                     <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                     <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
+                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
@@ -73,6 +73,13 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                        {{-- <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
                         </ul>
                     </li>
                 </ul>
@@ -217,7 +224,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Edit Banner</h1>
+                        <h1>Edit Frontpage</h1>
                     </div>
                 </div>
             </div>
@@ -263,18 +270,56 @@
                         <form action="{!! route('admin.updateBanner') !!}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                             <div class="row form-group">
-                                <div class="col col-md-3" style="text-align: center;">
-                                    <label for="text-input" class=" form-control-label">Name</label>
+                                <div class="col col-md-3" style="">
+                                    <label for="text-input" class=" form-control-label">Name:</label>
                                 </div>
-                                <div class="col-12 col-lg-8">
+                                <div class="col-12 col-lg-6">
                                     <input type="text" id="text-input" name="company_name" placeholder="" class="form-control" value="{{ $banner[0]->company_name }}">
                                 </div>
                             </div>
                             <div class="row form-group">
-                                    <div class="col col-md-3" style="text-align: center;">
-                                        <label for="textarea-input" class=" form-control-label">Motto</label>
+                                    <div class="col col-md-3" style="">
+                                        <label for="textarea-input" class=" form-control-label">Motto:</label>
                                     </div>
-                                    <div class="col-12 col-lg-8 "><textarea name="motto" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ $banner[0]->description }}</textarea></div>
+                                    <div class="col-12 col-lg-6 "><textarea name="motto" id="textarea-input" rows="5" placeholder="Content..." class="form-control">{{ $banner[0]->description }}</textarea></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3" style="">
+                                    <label for="textarea-input" class=" form-control-label">Address:</label>
+                                </div>
+                                <div class="col-12 col-lg-6 "><textarea name="address" id="textarea-input" rows="5" placeholder="" class="form-control">{{ $banner[0]->address }}</textarea></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3" style="">
+                                    <label for="text-input" class=" form-control-label">City:</label>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input type="text" id="text-input" name="city" placeholder="" class="form-control" value="{{ $banner[0]->city }}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3" style="">
+                                    <label for="text-input" class=" form-control-label">Email:</label>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input type="text" id="text-input" name="email_address" placeholder="opeoluborode@yahoo.com" class="form-control" value="{{ $banner[0]->email }}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3" style="">
+                                    <label for="text-input" class=" form-control-label">Phone Number:</label>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input type="text" id="text-input" name="phone_number" placeholder="+2348135019640" class="form-control" value="{{ $banner[0]->phone_number }}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3" style="">
+                                    <label for="text-input" class=" form-control-label">Opening & Closing time:</label>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input type="text" id="text-input" name="opening_closing_time" placeholder="Mon to Fri 9am to 6 pm" class="form-control" value="{{ $banner[0]->opening_closing_time }}">
+                                </div>
                             </div>
                             <div class="card-footer" style="text-align: center;">
                                 <button type="submit" class="btn btn-primary btn-sm">
