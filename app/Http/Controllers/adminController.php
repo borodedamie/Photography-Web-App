@@ -9,6 +9,8 @@ use App\Banner;
 use App\Feedback;
 use App\Event;
 use App\Service;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 
 class adminController extends Controller
@@ -65,7 +67,11 @@ class adminController extends Controller
 
     public function storeEvent(Request $request){
         // dd($request->all());
+        $image = $request->file('event_image');
         $imageName = $request->event_image->getClientOriginalName();
+        $extension = $request->event_image->getClientOriginalExtension();
+
+        Storage::disk('local')->put($imageName, File::get($image));
 
         DB::table('events')->insert([
             'event_title' => $request->event_title,

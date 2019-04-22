@@ -48,13 +48,13 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        {{-- <li class="active">
-                            <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                        </li> --}}
-                        <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                         <li class="active">
-                                <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
                         </li>
+                        <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
+                        {{-- <li class="active">
+                                <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        </li> --}}
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                             <ul class="sub-menu children dropdown-menu">
@@ -75,6 +75,8 @@
                                 <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
                             </ul>
                         </li>
+    
+                        <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
@@ -86,10 +88,6 @@
                 </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
-
-    <!-- Left Panel -->
-
-    <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
 
@@ -221,23 +219,25 @@
         <!-- Header-->
 
         <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Add Event</h1>
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Create New Event</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        {{-- <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol> --}}
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="{!! route('admin.index') !!}">Admin Home</a></li>
+                                <li><a href="{{ route('admin.event') }}">Event</a></li>
+                                <li class="active">New Event</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
 
         {{-- session --}}
         @if ($errors->any())
@@ -266,13 +266,13 @@
         <div class="col-lg-12">
             <div class="card">
                     <div class="card-body card-block">
-                        <form action="{!! route('admin.storeEvent')!!}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{!! route('admin.storeEvent')!!}" method="post" enctype="multipart/form-data" class="form-horizontal" id="eventForm">
                             <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                             <div class="row form-group">
                                 <div class="col col-md-3" style="">
                                     <label for="text-input" class=" form-control-label">Event Title</label>
                                 </div>
-                                <div class="col-12 col-lg-8">
+                                <div class="col-12 col-lg-6">
                                     <input type="text" id="text-input" name="event_title" placeholder="Event Title..." class="form-control">
                                 </div>
                             </div>
@@ -280,7 +280,7 @@
                                     <div class="col col-md-3" style="">
                                         <label for="textarea-input" class=" form-control-label">Event Description</label>
                                     </div>
-                                    <div class="col-12 col-lg-8 "><textarea name="event_description" id="textarea-input" rows="9" placeholder="A brief description of the event..." class="form-control"></textarea></div>
+                                    <div class="col-12 col-lg-6 "><textarea name="event_description" id="textarea-input" rows="5" placeholder="A brief description of the event..." class="form-control"></textarea></div>
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3" >
@@ -294,7 +294,7 @@
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Submit
                                 </button>
-                                <button type="reset" class="btn btn-danger btn-sm">
+                                <button type="reset" id="reset-btn" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset
                                 </button>
                             </div>
@@ -303,18 +303,20 @@
         </div>
         </div>
 
+        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
         <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/main.js') }}"></script>
     
 
-        <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-        <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-        <script src="{{ URL::asset('js/widgets.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $("#reset-btn").click(function(){
+                    $("#eventForm").trigger("reset");
+                });
+            });
+        </script>
     
 </body>
 

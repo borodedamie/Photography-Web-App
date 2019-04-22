@@ -50,13 +50,13 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        {{-- <li class="active">
-                            <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                        </li> --}}
-                        <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                         <li class="active">
-                                <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
                         </li>
+                        <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
+                        {{-- <li class="active">
+                                <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        </li> --}}
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                             <ul class="sub-menu children dropdown-menu">
@@ -77,6 +77,8 @@
                                 <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
                             </ul>
                         </li>
+    
+                        <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
@@ -222,11 +224,26 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Feedback</strong>
+        <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>All Feedbacks</h1>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="{!! route('admin.index') !!}">Admin Home</a></li>
+                                <li class="active">Feedback</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>

@@ -38,4 +38,8 @@ class homeController extends Controller
 
         return response()->json(['success' => 'data added successfully!']);
     }
+
+    public function blog(){
+        return view('blog');
+    }
 }

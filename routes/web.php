@@ -15,7 +15,10 @@
 //     return view('home');
 // });
 
-Route::get('/', 'homeController@index');
+Route::get('/', 'homeController@index')->name('home.index');
+
+//blog
+Route::get('/blog', 'homeController@blog')->name('home.blog');
 
 //banner
 Route::get('/admin', 'adminController@editBanner')->name('admin.index');

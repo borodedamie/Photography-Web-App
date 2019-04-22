@@ -48,13 +48,13 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    {{-- <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                    </li> --}}
-                    <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                     <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                        <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
                     </li>
+                    <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
+                    {{-- <li class="active">
+                            <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                    </li> --}}
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -75,6 +75,8 @@
                             <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
                         </ul>
                     </li>
+
+                    <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
                         {{-- <ul class="sub-menu children dropdown-menu">
@@ -231,9 +233,9 @@
             <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
-                        {{-- <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol> --}}
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Admin Home</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -341,32 +343,14 @@
 
     <!-- Right Panel -->
 
+    <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
 
 
-    <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-    <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-    <script src="{{ URL::asset('js/widgets.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-
-    <!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-    <script>
+    {{-- <script>
         (function($) {
             "use strict";
 
@@ -383,7 +367,8 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-    </script>
+    </script> --}}
+
 
 </body>
 
