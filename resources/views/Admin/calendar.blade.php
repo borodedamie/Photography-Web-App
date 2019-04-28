@@ -236,17 +236,19 @@
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
                                 <li><a href="{!! route('admin.index') !!}">Admin Home</a></li>
-                                <li class="active">Event</li>
+                                <li class="active">Calendar</li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div> 
             <br>
-            
-            <div id="calendar">
+
+            <div class="col-lg-12">
+                <div id="calendar">
                     {!! $calendar_details->calendar() !!}
-            </div>  
+                </div>  
+            </div>
             </div>
             </div>
 

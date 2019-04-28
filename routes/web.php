@@ -35,13 +35,7 @@ Route::delete('/admin/feedback/{id}', 'adminController@destroyFeedback')->name('
 Route::get('/admin/calendar', 'adminController@calendar')->name('admin.calendar');
 Route::get('/admin/event/new', 'adminController@newEvent')->name('admin.newEvent');
 Route::post('/admin/event/stored-event', 'adminController@storeEvent')->name('admin.storeEvent');
-Route::get('/admin/event/show/{id}', 'adminController@showEvent')->name('admin.showEvent');
-Route::get('/admin/event/edit/{id}', 'adminController@editEvent')->name('admin.editEvent');
-Route::post('/admin/event/update/{id}', 'adminController@updateEvent')->name('admin.updateEvent');
-Route::get('/admin/event/delete/{id}', [
-    'as' => 'admin.deleteEvent',
-    'uses' => 'adminController@deleteEvent'
-]);
+
 
 //service
 Route::get('/admin/services', 'adminController@services')->name('admin.services');
