@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(bannerSeeder::class);
         $this->call(feedbackSeeder::class);
         $this->call(instagramSeeder::class);
-        $this->call(eventSeeder::class);
+        // $this->call(eventSeeder::class);
         $this->call(RolesSeeder::class);
         $this->call(userSeeder::class);
         $this->call(serviceSeeder::class);

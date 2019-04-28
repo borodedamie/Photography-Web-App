@@ -32,7 +32,7 @@ Route::get('/admin/feedback', 'adminController@feedback')->name('admin.feedback'
 Route::delete('/admin/feedback/{id}', 'adminController@destroyFeedback')->name('admin.destroyFeedback');
 
 //event
-Route::get('/admin/event', 'adminController@event')->name('admin.event');
+Route::get('/admin/calendar', 'adminController@calendar')->name('admin.calendar');
 Route::get('/admin/event/new', 'adminController@newEvent')->name('admin.newEvent');
 Route::post('/admin/event/stored-event', 'adminController@storeEvent')->name('admin.storeEvent');
 Route::get('/admin/event/show/{id}', 'adminController@showEvent')->name('admin.showEvent');

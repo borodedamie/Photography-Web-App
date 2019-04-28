@@ -9,6 +9,7 @@ use App\Banner;
 use App\Feedback;
 use App\Event;
 use App\Service;
+use Calendar;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -55,10 +56,25 @@ class adminController extends Controller
 
     //event functions
 
-    public function event(){
+    public function calendar(){
 
-        $events = Event::all();
-        return view('admin.event', [ 'events' => $events ]);
+        $events = Event::get();
+        //return $events;
+        
+    	$event_list = [];
+    	foreach ($events as $key => $event) {
+    		$event_list[] = Calendar::event(
+                $event->event_title,
+                true,
+                new \DateTime($event->start_date),
+                new \DateTime($event->end_date.' +1 day')
+            );
+        }
+        
+        //return $event_list;
+    	$calendar_details = Calendar::addEvents($event_list); 
+ 
+        return view('admin.calendar', ['calendar_details' => $calendar_details] );
     }
 
     public function newEvent() {
@@ -66,20 +82,16 @@ class adminController extends Controller
     }
 
     public function storeEvent(Request $request){
-        // dd($request->all());
-        $image = $request->file('event_image');
-        $imageName = $request->event_image->getClientOriginalName();
-        $extension = $request->event_image->getClientOriginalExtension();
-
-        Storage::disk('local')->put($imageName, File::get($image));
-
-        DB::table('events')->insert([
-            'event_title' => $request->event_title,
-            'event_description' => $request->event_description,
-            'event_image' => $imageName
-        ]);
         
-        return back()->with('success', 'Event created successfully!');
+        $event = new Event();
+
+        $event->event_title = $request->event_title;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
+
+        $event->save();
+
+        return back()->with('success', 'Event added to calendar successfully!');
     }
 
     

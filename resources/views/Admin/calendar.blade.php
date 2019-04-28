@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/adminStyle.css') }}">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 
 </head>
 
@@ -63,7 +65,7 @@
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.calendar') }}">Calendar</a></li>
                                 <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                             </ul>
                         </li>    
@@ -225,7 +227,7 @@
                 <div class="col-sm-4">
                     <div class="page-header float-left">
                         <div class="page-title">
-                            <h1>Event</h1>
+                            <h1>Calendar</h1>
                         </div>
                     </div>
                 </div>
@@ -240,35 +242,12 @@
                     </div>
                 </div>
             </div> 
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Event</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    @foreach($events as $event)
-                                    <tr>
-                                        <th scope="row">{!! $event->event_id !!}</th>
-                                        <td>{!! $event->event_title !!}</td>
-                                        <td>{!! $event->event_description !!}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="{!! route('admin.showEvent', [$event->event_id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                <a href="{!! route('admin.editEvent', [$event->event_id]) !!}" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                                <a href="{!! route('admin.deleteEvent', [$event->event_id]) !!}" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <br>
+            
+            <div id="calendar">
+                    {!! $calendar_details->calendar() !!}
+            </div>  
+            </div>
             </div>
 
 
@@ -280,43 +259,14 @@
         <script src="{{ URL::asset('js/main.js') }}"></script>
     
 
-        <script src="{{ URL::asset('vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
         <script src="{{ URL::asset('js/dashboard.js') }}"></script>
-        <script src="{{ URL::asset('js/widgets.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+        {!! $calendar_details->script() !!}
+
     
-<!-- Datatable plugins-->
-    <script src="{{ URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ URL::asset('js/init-scripts/data-table/datatables-init.js') }}"></script>
-<script>
-            (function($) {
-                "use strict";
-    
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                 backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
+
     
 </body>
     

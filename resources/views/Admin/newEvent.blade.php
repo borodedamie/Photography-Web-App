@@ -266,39 +266,43 @@
         <div class="col-lg-12">
             <div class="card">
                     <div class="card-body card-block">
-                        <form action="{!! route('admin.storeEvent')!!}" method="post" enctype="multipart/form-data" class="form-horizontal" id="eventForm">
-                            <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
-                            <div class="row form-group">
-                                <div class="col col-md-3" style="">
-                                    <label for="text-input" class=" form-control-label">Event Title</label>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <input type="text" id="text-input" name="event_title" placeholder="Event Title..." class="form-control">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                    <div class="col col-md-3" style="">
-                                        <label for="textarea-input" class=" form-control-label">Event Description</label>
-                                    </div>
-                                    <div class="col-12 col-lg-6 "><textarea name="event_description" id="textarea-input" rows="5" placeholder="A brief description of the event..." class="form-control"></textarea></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3" >
-                                    <label for="file-input" class=" form-control-label">Event Image</label>
-                                </div>
-                                <div class="col-12 col-lg-6" style="">
-                                    <input type="file" id="file-input" name="event_image" class="form-control-file">
+                        {!! Form::open(array('route' => 'admin.storeEvent','method'=>'POST','files'=>'true')) !!}
+                            <div class="col-12 col-lg-6">
+                        <div class="form-group">
+                                {!! Form::label('event_title','Title:') !!}
+                                <div class="">
+                                {!! Form::text('event_title', null, ['class' => 'form-control']) !!}
+                                {!! $errors->first('event_title', '<p class="alert alert-danger">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="card-footer" style="text-align: center;">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
-                                <button type="reset" id="reset-btn" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
-                                </button>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                            {!! Form::label('start_date','Start Date:') !!}
+                            <div class="">
+                            {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
+                            {!! $errors->first('start_date', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
-                        </form>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                            {!! Form::label('end_date','End Date:') !!}
+                            <div class="">
+                            {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
+                            {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 text-center"> &nbsp;<br/>
+                        {!! Form::submit('Add Event',['class'=>'btn btn-primary']) !!}
+                        </div>
+                        </div>
+            </div>
+               {!! Form::close() !!}
             </div>
         </div>
         </div>

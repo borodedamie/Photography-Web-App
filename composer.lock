@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a4cd0d65113a2290c471629bca267c5",
+    "content-hash": "c8aa47cfd9fc149875411170d7767777",
     "packages": [
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
@@ -519,16 +519,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.13",
+            "version": "v5.8.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "837e3823e2274d22b8e281d093391b5d9c23029a"
+                "reference": "d1ba096bf809c7cbe6cb9624222326d75c92fd74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/837e3823e2274d22b8e281d093391b5d9c23029a",
-                "reference": "837e3823e2274d22b8e281d093391b5d9c23029a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d1ba096bf809c7cbe6cb9624222326d75c92fd74",
+                "reference": "d1ba096bf809c7cbe6cb9624222326d75c92fd74",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-04-18T15:28:45+00:00"
+            "time": "2019-04-23T13:22:19+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -726,6 +726,74 @@
                 "psysh"
             ],
             "time": "2018-10-12T19:39:35+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "0e360143d3476fe4141d267a260c140569fa207b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/0e360143d3476fe4141d267a260c140569fa207b",
+                "reference": "0e360143d3476fe4141d267a260c140569fa207b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.8.*",
+                "illuminate/routing": "5.8.*",
+                "illuminate/session": "5.8.*",
+                "illuminate/support": "5.8.*",
+                "illuminate/view": "5.8.*",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "illuminate/database": "5.8.*",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.8-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2019-03-01T22:53:41+00:00"
         },
         {
             "name": "league/flysystem",
@@ -812,6 +880,53 @@
             "time": "2019-03-30T13:22:34+00:00"
         },
         {
+            "name": "maddhatter/laravel-fullcalendar",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maddhatter/laravel-fullcalendar.git",
+                "reference": "6502ee3eee2d506d58fa37864af8f2003c9aaca1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maddhatter/laravel-fullcalendar/zipball/6502ee3eee2d506d58fa37864af8f2003c9aaca1",
+                "reference": "6502ee3eee2d506d58fa37864af8f2003c9aaca1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MaddHatter\\LaravelFullcalendar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Calendar": "MaddHatter\\LaravelFullcalendar\\Facades\\Calendar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "MaddHatter\\LaravelFullcalendar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shawn Tunney",
+                    "email": "shawn.tunney@gmail.com"
+                }
+            ],
+            "description": "Laravel helper for FullCalendar.io",
+            "time": "2017-09-18T17:54:18+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.24.0",
             "source": {
@@ -891,16 +1006,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.17.0",
+            "version": "2.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "9b49d637ad009e5e211142bc7492adcb19dbd645"
+                "reference": "96acbc0c03782e8115156dd4dd8b736267155066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b49d637ad009e5e211142bc7492adcb19dbd645",
-                "reference": "9b49d637ad009e5e211142bc7492adcb19dbd645",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/96acbc0c03782e8115156dd4dd8b736267155066",
+                "reference": "96acbc0c03782e8115156dd4dd8b736267155066",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +1062,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-04-17T08:51:36+00:00"
+            "time": "2019-04-27T18:04:27+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4010,16 +4125,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.1.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656"
+                "reference": "3095910f0f0fb155ac4021fc51a4a7a39ac04e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6fda8ce1974b62b14935adc02a9ed38252eca656",
-                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/3095910f0f0fb155ac4021fc51a4a7a39ac04e8a",
+                "reference": "3095910f0f0fb155ac4021fc51a4a7a39ac04e8a",
                 "shasum": ""
             },
             "require": {
@@ -4034,7 +4149,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -4059,7 +4174,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2019-02-01T05:27:49+00:00"
+            "time": "2019-04-25T07:55:20+00:00"
         },
         {
             "name": "sebastian/exporter",
