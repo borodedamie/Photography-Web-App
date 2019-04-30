@@ -42,3 +42,6 @@ Route::get('/admin/services', 'adminController@services')->name('admin.services'
 Route::get('/admin/edit/service/{id}', 'adminController@editService')->name('admin.editService');
 Route::post('/admin/service/update/{id}', 'adminController@updateService')->name('admin.updateService');
 Route::get('/admin/service/show/{id}', 'adminController@showService')->name('admin.showService');
+
+//gallery
+Route::get('/admin/gallery/table', 'adminController@dataTable')->name('admin.datatable');

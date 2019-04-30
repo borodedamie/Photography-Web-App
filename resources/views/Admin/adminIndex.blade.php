@@ -79,9 +79,9 @@
                     <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
-                        {{-- <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.datatable') }}">Gallery</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Add Image</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -14,7 +14,7 @@ $factory->define(App\Gallery::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->sentence,
-        'image' => $faker->image('public/storage/images', 400, 300),
+        'image' => $faker->image('public/storage/images', 640, 480),
         'category_id' => $category_id
     ];
 });

@@ -267,7 +267,7 @@
                     </div>
             </div>
             <div class="class">
-                <a class="btn btn-outline-info" href="{{ route('admin.event')}}" role="button" style="margin-left: 400px; margin-bottom: 30px;">Back</a>
+                <a class="btn btn-outline-info" href="{{ route('admin.services')}}" role="button" style="margin-left: 400px; margin-bottom: 30px;">Back</a>
             </div>
     </div>
     

@@ -133,4 +133,8 @@ class adminController extends Controller
         return view('admin.showService', [ 'service' => $service ]);
     }
 
+    public function datatable(){
+        return view('gallery.datatable');
+    }
+
 }
