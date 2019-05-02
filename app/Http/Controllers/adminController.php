@@ -9,6 +9,8 @@ use App\Banner;
 use App\Feedback;
 use App\Event;
 use App\Service;
+use App\Gallery;
+use App\Category;
 use Calendar;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -134,7 +136,23 @@ class adminController extends Controller
     }
 
     public function datatable(){
-        return view('gallery.datatable');
+        
+        $galleries = Gallery::all();
+
+        return view('gallery.datatable', [ 'galleries' => $galleries ]);
+    }
+
+    public function editGallery($id){
+        $gallery = Gallery::where('gallery_id', $id)->first();
+
+        return $gallery;
+    }
+
+    public function destroyGallery($id)
+    {
+        Gallery::where('gallery_id', $id);
+
+        return response()->json([ 'success' => 'gallery deleted successfully!']);
     }
 
 }

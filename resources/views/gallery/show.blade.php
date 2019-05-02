@@ -42,53 +42,54 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="./admin"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="{{ URL::asset('img/logo2.png') }}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
-                        </li>
-                        <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
-                        {{-- <li class="active">
-                                <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
-                        </li> --}}
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.calendar') }}">Calendar</a></li>
-                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
-                            </ul>
-                        </li>    
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
-                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
-                            </ul>
-                        </li>
-    
-                        <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
-                            {{-- <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}"></a></li>
-                                <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li> --}}
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
+                    </li>
+                    <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
+                    {{-- <li class="active">
+                            <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                    </li> --}}
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{ route('admin.feedback') }}">Feedback</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.calendar') }}">Calendar</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
+                        </ul>
+                    </li>    
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                        </ul>
+                    </li>
+
+                    <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.datatable') }}">Gallery</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Add Image</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
 
+    
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
@@ -216,112 +217,21 @@
             </div>
 
         </header><!-- /header -->
-        <!-- Header-->
-
         <div class="breadcrumbs">
-                <div class="col-sm-4">
-                    <div class="page-header float-left">
-                        <div class="page-title">
-                            <h1>Create New Event</h1>
-                        </div>
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1></h1>
                     </div>
                 </div>
-                <div class="col-sm-8">
-                    <div class="page-header float-right">
-                        <div class="page-title">
-                            <ol class="breadcrumb text-right">
-                                <li><a href="{!! route('admin.index') !!}">Admin Home</a></li>
-                                <li><a href="{{ route('admin.newEvent') }}">Event</a></li>
-                                <li class="active">New Event</li>
-                            </ol>
-                        </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Admin Home</li>
+                        </ol>
                     </div>
                 </div>
-            </div> 
-
-        {{-- session --}}
-        @if ($errors->any())
-        <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
-    
-    
-        @if(Session::has('success'))
-          <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
-              <div class = "text-center" >{{Session::get('success')}}
-
-                <button style = "" type="button" class="close" onclick = "document.getElementById('success-div').style.display = 'none';" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button> 
-              </div>              
-        
-          </div>
-        @endif
-
-        <div class="col-lg-12">
-            <div class="card">
-                    <div class="card-body card-block">
-                        {!! Form::open(array('route' => 'admin.storeEvent','method'=>'POST','files'=>'true')) !!}
-                            <div class="col-12 col-lg-6">
-                        <div class="form-group">
-                                {!! Form::label('event_title','Title:') !!}
-                                <div class="">
-                                {!! Form::text('event_title', null, ['class' => 'form-control']) !!}
-                                {!! $errors->first('event_title', '<p class="alert alert-danger">:message</p>') !!}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="form-group">
-                            {!! Form::label('start_date','Start Date:') !!}
-                            <div class="">
-                            {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('start_date', '<p class="alert alert-danger">:message</p>') !!}
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="form-group">
-                            {!! Form::label('end_date','End Date:') !!}
-                            <div class="">
-                            {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 text-center"> &nbsp;<br/>
-                        {!! Form::submit('Add Event',['class'=>'btn btn-primary']) !!}
-                        </div>
-                        </div>
             </div>
-               {!! Form::close() !!}
-            </div>
-        </div>
-        </div>
-
-        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
-        <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('js/main.js') }}"></script>
-    
-
-        <script>
-            $(document).ready(function(){
-                $("#reset-btn").click(function(){
-                    $("#eventForm").trigger("reset");
-                });
-            });
-        </script>
-    
-</body>
-
-</html>
+        </div> 

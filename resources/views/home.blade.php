@@ -77,50 +77,78 @@
         </section>
         <!--================End Home Banner Area =================-->
         
-        <!--================Home Blog Area =================-->
-		<section class="blog_categorie_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="categories_post">
-                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-3.jpg') }}" alt="post">
-                            <div class="categories_details">
-                                <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Birthday Event</h5></a>
-                                    <div class="border_line"></div>
-                                    <p>Birthdays are for bants.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="categories_post">
-                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-2.jpg') }}" alt="post">
-                            <div class="categories_details">
-                                <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Wedding Ceremonies</h5></a>
-                                    <div class="border_line"></div>
-                                    <p>& two shall become one</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="categories_post">
-                            <img src="{{ URL::asset('img/blog/cat-post/cat-post-1.jpg') }}" alt="post">
-                            <div class="categories_details">
-                                <div class="categories_text">
-                                    <a href="blog-details.html"><h5>Graduation Ceremonies</h5></a>
-                                    <div class="border_line"></div>
-                                    <p>Lets help capture your one in a lifetime event.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================End Home Blog Area =================-->
+		<!--================Home Blog Area =================-->
+				<section class="home_blog_area pad_top">
+					<div class="container">
+						<div class="home_blog_inner">
+							<div class="row h_blog_item">
+								<div class="col-lg-6">
+									<div class="h_blog_img">
+										<img class="img-fluid" src="{{ URL::asset('img/home-blog/h-blog-1.jpg') }}" alt="">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="h_blog_text">
+										<div class="h_blog_text_inner left">
+											<h4>Spreading <br />Peace to world</h4>
+											<p>If you are looking at blank cassette on the web you may be very confused at the difference in price you may see some.</p>
+											<a class="main_btn2" href="#">Explore Gallery</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row h_blog_item">
+								<div class="col-lg-6">
+									<div class="h_blog_text">
+										<div class="h_blog_text_inner right">
+											<h4>Spreading <br />Peace to world</h4>
+											<p>If you are looking at blank cassette on the web you may be very confused at the difference in price you may see some.</p>
+											<a class="main_btn2" href="#">Explore Gallery</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="h_blog_img">
+										<img class="img-fluid" src="{{ URL::asset('img/home-blog/h-blog-2.jpg') }}" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="row h_blog_item">
+								<div class="col-lg-6">
+									<div class="h_blog_img">
+										<img class="img-fluid" src="{{ URL::asset('img/home-blog/h-blog-3.jpg') }}" alt="">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="h_blog_text">
+										<div class="h_blog_text_inner left">
+											<h4>Spreading <br />Peace to world</h4>
+											<p>If you are looking at blank cassette on the web you may be very confused at the difference in price you may see some.</p>
+											<a class="main_btn2" href="#">Explore Gallery</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row h_blog_item">
+								<div class="col-lg-6">
+									<div class="h_blog_text">
+										<div class="h_blog_text_inner right">
+											<h4>Spreading <br />Peace to world</h4>
+											<p>If you are looking at blank cassette on the web you may be very confused at the difference in price you may see some.</p>
+											<a class="main_btn2" href="#">Explore Gallery</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="h_blog_img">
+										<img class="img-fluid" src="{{ URL::asset('img/home-blog/h-blog-4.jpg') }}" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--================End Home Blog Area =================-->
                 
         <!--================Feedback Area =================-->
         <section class="feedback_area pad_bt">
