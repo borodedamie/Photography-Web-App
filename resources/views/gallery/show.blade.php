@@ -221,7 +221,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1></h1>
+                        <h1>{{ $gallery->name }}</h1>
                     </div>
                 </div>
             </div>
@@ -229,9 +229,49 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Admin Home</li>
+                            <li><a href="{!! route('admin.index') !!}">Admin Home</a></li>
+                            <li class="active">Gallery</li>
                         </ol>
                     </div>
                 </div>
             </div>
+        </div>
+        <br>
+        <br>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Name:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $gallery->name }}</a></p>
+                    </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Image:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <img src="/storage/images\{{ $gallery->image}}" type= "file" width="300px"/>
+                    </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Description:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $gallery->description }}</a></p>
+                    </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col col-md-3" style="margin-left: 50px;">
+                        <label for="text-input" class=" form-control-label">Category:</label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p><a href="">{{ $gallery->category_id }}</a></p>
+                    </div>
+            </div>
+            <div class="class">
+                <a class="btn btn-outline-info" href="" role="button" style="margin-left: 400px; margin-bottom: 30px;">Back</a>
+            </div>
+    </div>
         </div> 

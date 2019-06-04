@@ -155,4 +155,11 @@ class adminController extends Controller
         return response()->json([ 'success' => 'gallery deleted successfully!']);
     }
 
+    public function showGallery($id){
+        $gallery = Gallery::where('gallery_id', $id)->first();
+
+        return $gallery;
+        return view('gallery.show', ['gallery' => $gallery ]);
+    }
+
 }

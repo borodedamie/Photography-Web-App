@@ -270,7 +270,7 @@
                                         <td>{{ $gallery->category_id }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="#" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                    <a href="{{ route('admin.showGallery', [ $gallery->gallery_id ]) }}" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                     <a href="{{ route('admin.editGallery', [ $gallery->gallery_id ] ) }}" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                                     <a href="" class='btn btn-danger btn-xs'><i class="fa fa-trash" id="deleteGallery" data-id="{{ $gallery->gallery_id }}" aria-hidden="true"></i></a>
                                                 </div>

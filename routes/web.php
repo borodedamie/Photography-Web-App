@@ -45,5 +45,6 @@ Route::get('/admin/service/show/{id}', 'adminController@showService')->name('adm
 
 //gallery
 Route::get('/admin/gallery/table', 'adminController@dataTable')->name('admin.datatable');
-Route::get('/admin/gallery/{id}', 'adminController@editGallery')->name('admin.editGallery');
-Route::delete('/admin/gallery/{id}', 'adminController@destroyGallery')->name('admin.destroyGallery');
+Route::get('/admin/gallery/edit/{id}', 'adminController@editGallery')->name('admin.editGallery');
+Route::delete('/admin/gallery/delete/{id}', 'adminController@destroyGallery')->name('admin.destroyGallery');
+Route::get('admin/gallery/show/{id}', 'adminController@showGallery')->name('admin.showGallery');
