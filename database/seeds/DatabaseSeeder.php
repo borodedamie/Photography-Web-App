@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(serviceSeeder::class);
         $this->call(categorySeeder::class);
 
-        factory(Gallery::class, 50)->create();
+        // factory(Gallery::class, 50)->create();
 
     }
 }

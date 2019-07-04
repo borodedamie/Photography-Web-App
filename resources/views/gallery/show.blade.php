@@ -251,7 +251,7 @@
                         <label for="text-input" class=" form-control-label">Image:</label>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <img src="/storage/images\{{ $gallery->image}}" type= "file" width="300px"/>
+                        <img src="/storage/images/{{ $gallery->image}}" type= "file" width="300px"/>
                     </div>
             </div>
             <div class="row form-group">

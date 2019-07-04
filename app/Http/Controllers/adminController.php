@@ -138,6 +138,7 @@ class adminController extends Controller
     public function datatable(){
         
         $galleries = Gallery::all();
+        return 'i got here';
 
         return view('gallery.datatable', [ 'galleries' => $galleries ]);
     }
@@ -158,7 +159,7 @@ class adminController extends Controller
     public function showGallery($id){
         $gallery = Gallery::where('gallery_id', $id)->first();
 
-        return $gallery;
+        dd($gallery);
         return view('gallery.show', ['gallery' => $gallery ]);
     }
 

@@ -42,19 +42,19 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="./admin"><img src="{{ URL::asset('img/adminLogo.png') }}" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="{{ URL::asset('img/logo2.png') }}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    {{-- <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-laptop"></i>Banner </a>
-                    </li> --}}
-                    <h3 class="menu-title">PHOTOGRAPHY</h3> <!-- /.menu-title -->
                     <li class="active">
-                            <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-home"></i>Banner </a>
+                        <a href="{!! route('admin.index') !!}"> <i class="menu-icon fa fa-laptop"></i>Admin </a>
                     </li>
+                    <h3 class="menu-title">Reviews</h3> <!-- /.menu-title -->
+                    {{-- <li class="active">
+                            <a href=""> <i class="menu-icon fa fa-home"></i>Frontpage </a>
+                    </li> --}}
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -64,15 +64,24 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Events</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.event') }}">Event</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.calendar') }}">Calendar</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.newEvent') }}">New Event</a></li>
                         </ul>
                     </li>    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Services</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="#">Services</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.services') }}">Services</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="#">New Services</a></li>
+                        </ul>
+                    </li>
+
+                    <h3 class="menu-title">Portfolio</h3><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Gallery</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="{{ route('admin.datatable') }}">Gallery</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Add Image</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -210,6 +219,12 @@
                 </div>
             </div>
 
-            @yield('adminHeader')
         </header><!-- /header -->
         <!-- Header-->
+<div class="container">
+    @yield('content')
+</div>
+
+</body>
+    
+</html>

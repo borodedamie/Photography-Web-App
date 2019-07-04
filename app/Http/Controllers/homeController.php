@@ -42,4 +42,8 @@ class homeController extends Controller
     public function blog(){
         return view('blog');
     }
+
+    public function portfolio(){
+        return view('portfolio');
+    }
 }

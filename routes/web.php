@@ -20,6 +20,9 @@ Route::get('/', 'homeController@index')->name('home.index');
 //blog
 Route::get('/blog', 'homeController@blog')->name('home.blog');
 
+//portfolio
+Route::get('/portfolio', 'homeController@portfolio')->name('home.portfolio');
+
 //banner
 Route::get('/admin', 'adminController@editBanner')->name('admin.index');
 Route::post('/admin/updateBanner', 'adminController@updateBanner')->name('admin.updateBanner');

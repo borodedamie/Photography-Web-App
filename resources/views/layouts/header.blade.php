@@ -57,6 +57,5 @@
 					</div>
             	</nav>
             </div>
-
-            @yield('header')
+			@yield('content')
         </header>

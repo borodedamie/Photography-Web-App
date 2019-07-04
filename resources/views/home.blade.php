@@ -40,11 +40,10 @@
 								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
 								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
 								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</a>
-									{{-- <ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a>
-										<li class="nav-item"><a class="nav-link" href="project-details.html">Project Details</a></li>
-									</ul> --}}
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+									<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="{{ route('home.portfolio') }}">Photo Gallery</a></li>
+									</ul>
 								</li> 
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
