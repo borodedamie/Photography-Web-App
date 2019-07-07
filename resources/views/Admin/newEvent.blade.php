@@ -52,7 +52,7 @@
                     <div class="card-body card-block">
                         {!! Form::open(array('route' => 'admin.storeEvent','method'=>'POST','files'=>'true')) !!}
                         
-                        <div class="col-12 col-lg-6">
+                        <div class="col-6">
                         <div class="form-group">
                                 {!! Form::label('event_title','Title:') !!}
                                 <div class="">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-6">
+                        <div class="col-6">
                             <div class="form-group">
                             {!! Form::label('start_date','Start Date:') !!}
                             <div class="">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-6">
+                        <div class="col-6">
                             <div class="form-group">
                             {!! Form::label('end_date','End Date:') !!}
                             <div class="">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-6 text-center"> &nbsp;<br/>
+                        <div class="col-12"> &nbsp;<br/>
                         {!! Form::submit('Add Event',['class'=>'btn btn-primary']) !!}
                         </div>
                         </div>
